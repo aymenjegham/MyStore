@@ -13,4 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MyStore"
-include ':app'
+include ':framework'
+include ':presentation'
+include ':core'

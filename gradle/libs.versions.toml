@@ -1,0 +1,11 @@
+[versions]
+
+
+
+
+[libraries]
+
+# Dependencies of the included build-logic
+
+[plugins]
+
