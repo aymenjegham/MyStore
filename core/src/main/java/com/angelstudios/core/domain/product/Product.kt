@@ -1,21 +1,19 @@
 package com.angelstudios.core.domain.product
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+
 import java.io.Serializable
 
 data class Product(
 
-    @Expose @SerializedName("id") val id: String,
+    val id: String,
 
+    val name: String,
 
-    @Expose @SerializedName("name") val name: String,
+    val price: Float,
 
-    @Expose @SerializedName("price") val price: Float,
+    val currency: String,
 
-    @Expose @SerializedName("currency") val currency: String,
-
-    @Expose @SerializedName("companyId") val companyId: Float,
+    val companyId: Float,
 
 
     ) : Serializable

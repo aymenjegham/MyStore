@@ -1,6 +1,6 @@
+import android.content.pm.ActivityInfo
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -19,13 +20,19 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.angelstudios.presentation.R
 import com.angelstudios.presentation.ScreenRoutes
+import com.angelstudios.presentation.components.RoundedCornersButton
+import com.angelstudios.presentation.loginScreen.LoginViewModel
 import com.angelstudios.presentation.ui.theme.Typography
+import com.angelstudios.presentation.utils.LockScreenOrientation
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(navController: NavController,viewModel: LoginViewModel) {
+    LockScreenOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
 
     Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
         Box(
@@ -41,36 +48,30 @@ fun LoginScreen(navController: NavController) {
                 val username = remember { mutableStateOf(TextFieldValue()) }
                 val password = remember { mutableStateOf(TextFieldValue()) }
 
-                Text(text = "Login",
+                Text(text = stringResource(R.string.login),
                     style = TextStyle(fontSize = 40.sp, fontFamily = FontFamily.Serif))
 
                 Spacer(modifier = Modifier.height(20.dp))
-                OutlinedTextField(label = { Text(text = "Username") },
+                OutlinedTextField(label = { Text(text = stringResource(R.string.email)) },
                     value = username.value,
                     onValueChange = { username.value = it })
 
                 Spacer(modifier = Modifier.height(20.dp))
-                OutlinedTextField(label = { Text(text = "Password") },
+                OutlinedTextField(label = { Text(text = stringResource(R.string.password)) },
                     value = password.value,
                     visualTransformation = PasswordVisualTransformation(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                     onValueChange = { password.value = it })
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
-                    Button(onClick = {
-                        navController.navigate(ScreenRoutes.MainScreen.route)
-                    },
-                        shape = RoundedCornerShape(50.dp),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(50.dp)) {
-                        Text(text = "Login")
+                RoundedCornersButton(stringResource(R.string.login)) {
+                    navController.navigate(ScreenRoutes.MainScreen.route) {
+                        popUpTo(0)
                     }
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                ClickableText(text = AnnotatedString("Forgot password?"),
+                ClickableText(text = AnnotatedString(stringResource(R.string.forgot_password)),
                     onClick = {
                         navController.navigate(ScreenRoutes.ForgetPassword.route)
                     },
@@ -83,11 +84,13 @@ fun LoginScreen(navController: NavController) {
                     .align(Alignment.BottomCenter)
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween) {
-                ClickableText("Sign up here") {
+                ClickableLabelText(stringResource(R.string.sign_up_here)) {
                     navController.navigate(ScreenRoutes.SignInScreen.route)
                 }
-                ClickableText("Skip") {
-                    navController.navigate(ScreenRoutes.MainScreen.route)
+                ClickableLabelText(stringResource(R.string.skip)) {
+                    navController.navigate(ScreenRoutes.MainScreen.route) {
+                        popUpTo(0)
+                    }
                 }
             }
 
@@ -95,8 +98,9 @@ fun LoginScreen(navController: NavController) {
     }
 }
 
+
 @Composable
-private fun ClickableText(text: String, onClick: (Int) -> Unit) {
+private fun ClickableLabelText(text: String, onClick: (Int) -> Unit) {
     ClickableText(text = AnnotatedString(text),
         modifier = Modifier.padding(20.dp),
         onClick = onClick,

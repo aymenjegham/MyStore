@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.angelstudios.core.domain.product.Product
-import com.angelstudios.mystore.domain.product.ProductEntity
+import com.angelstudios.mystore.Entity.product.ProductEntity
 
 
 @Dao

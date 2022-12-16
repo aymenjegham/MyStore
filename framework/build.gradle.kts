@@ -4,6 +4,8 @@ plugins {
     id ("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("kotlin-android-extensions")
+    id ("com.google.gms.google-services")
+
 }
 
 android {
@@ -52,15 +54,10 @@ dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
     implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.ui:ui:1.3.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.3.1")
-    implementation("androidx.compose.material3:material3:1.1.0-alpha02")
+    implementation("com.google.firebase:firebase-auth:21.1.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.4")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.3.1")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.3.1")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.3.1")
 
 
     //navigation compose
@@ -83,6 +80,11 @@ dependencies {
 
     //Gson
     implementation("com.google.code.gson:gson:2.8.9")
+
+
+    // Firebase  authentication
+    implementation(platform("com.google.firebase:firebase-bom:30.4.1"))
+    implementation ("com.google.firebase:firebase-auth-ktx")
 
 }
 
