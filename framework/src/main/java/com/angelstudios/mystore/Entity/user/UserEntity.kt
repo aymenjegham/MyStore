@@ -1,4 +1,4 @@
-package com.angelstudios.mystore.domain.customer
+package com.angelstudios.mystore.Entity.user
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,7 +10,7 @@ import java.io.Serializable
 
 
 @Entity(tableName ="customer")
-data class CustomerEntity(
+data class UserEntity(
 
 
     @PrimaryKey

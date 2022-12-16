@@ -2,17 +2,17 @@ package com.angelstudios.mystore.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.angelstudios.mystore.Entity.product.ProductEntity
+import com.angelstudios.mystore.Entity.user.UserEntity
 import com.angelstudios.mystore.database.dao.CustomerDao
 import com.angelstudios.mystore.database.dao.ProductDao
-import com.angelstudios.mystore.domain.customer.CustomerEntity
-import com.angelstudios.mystore.domain.product.ProductEntity
 
 
 const val DATABASE_NAME = "mystore_db"
 const val DATABASE_VERSION = 3
 
 @Database(
-    entities = [ProductEntity::class, CustomerEntity::class],
+    entities = [ProductEntity::class, UserEntity::class],
     version = DATABASE_VERSION,
     exportSchema = true
 )

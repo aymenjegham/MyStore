@@ -1,4 +1,4 @@
-package com.angelstudios.mystore.domain.product
+package com.angelstudios.mystore.Entity.product
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

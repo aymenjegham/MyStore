@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Store</string>
+    <string name="login">S\'identifier</string>
+    <string name="password">Mot de passe</string>
+    <string name="forgot_password">Mor de passe oublié ?</string>
+    <string name="sign_up_here">S\'enregistrer</string>
+    <string name="skip">Skip</string>
+    <string name="reset_password">réinitialiser mot de passe</string>
+    <string name="sign_up">S\'enregistrer</string>
+    <string name="email">adresse electronique</string>
+    <string name="confirm_password">Confirmer mot de passe</string>
+
+    <string name="error_login_custom_token">Le format de token personnalisé est incorrect. Veuillez vérifier la documentation.</string>
+    <string name="error_login_custom_token_mismatch">Le token personnalisé correspond à une audience différente.</string>
+    <string name="error_login_credential_malformed_or_expired">L\'identifiant d\'authentification fourni est incorrect ou a expiré.</string>
+    <string name="error_login_invalid_email">L\'adresse e-mail est mal formatée.</string>
+    <string name="error_login_wrong_password">Le mot de passe est invalide ou l\'utilisateur n\'a pas de mot de passe.</string>
+    <string name="error_login_user_mismatch">Les informations d\'identification fournies ne correspondent pas à l\'utilisateur précédemment connecté.</string>
+    <string name="error_login_requires_recent_login">Cette opération est sensible et nécessite une authentification récente. Connectez-vous à nouveau avant de réessayer cette demande.</string>
+    <string name="error_login_accounts_exits_with_different_credential">Un compte existe déjà avec la même adresse e-mail mais des identifiants de connexion différents. Connectez-vous en utilisant un fournisseur associé à cette adresse e-mail.</string>
+    <string name="error_login_email_already_in_use">L\'adresse e-mail est déjà utilisée par un autre compte.</string>
+    <string name="error_login_credential_already_in_use">Cet identifiant est déjà associé à un autre compte utilisateur.</string>
+    <string name="error_login_user_disabled">The user account has been disabled by an administrator.</string>
+    <string name="error_login_user_not_found">Il n\'y a pas d\'enregistrement d\'utilisateur correspondant à cet identifiant. L\'utilisateur a peut-être été supprimé.</string>
+    <string name="error_login_operation_not_allowed">Cette opération n\'est pas autorisée. Vous devez activer ce service dans la console.</string>
+    <string name="error_login_password_is_weak">Le mot de passe donné est invalide.</string>
+    <string name="error_login_user_token_expired">Les informations d\'identification de l\'utilisateur ne sont plus valides. L\'utilisateur doit se reconnecter</string>
+    <string name="error_login_invalid_user_token">Les informations d\'identification de l\'utilisateur ne sont plus valides. L\'utilisateur doit se reconnecter.</string>
+    <string name="error_login_default_error">une erreur est survenue</string>
+
+    <string name="email_cant_be_blank">L\'email ne peut pas etre vide</string>
+    <string name="email_not_valid">L\'email n\'est pas valide</string>
+    <string name="password_cant_be_less_than_8"> Le mot de passe ne peut pas etre inférieur à  8 characteres</string>
+    <string name="password_should_have_atleast_oneletter_onedigit">Le mot de passe doit contient au minimum une lettre et un chiffre</string>
+    <string name="password_dont_match">Le mot de passe n\'est pas la meme</string>
+    <string name="password_cant_be_blank">Le mot de passe doit pas etre vide</string>
+
+</resources>
