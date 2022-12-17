@@ -3,7 +3,6 @@ plugins {
     id ("com.android.library")
     id ("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
-    id("kotlin-android-extensions")
     id ("com.google.gms.google-services")
 
 }
