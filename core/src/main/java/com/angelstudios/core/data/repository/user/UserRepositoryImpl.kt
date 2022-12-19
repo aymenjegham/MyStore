@@ -11,4 +11,11 @@ class UserRepositoryImpl @Inject constructor(
     override  fun registerUserWithEmailAndPassword(userName: String, password: String): Flow<NetworkResult<Any>> {
         return datasource.registerUserWithEmailAndPassword(userName, password)
     }
+
+    override fun loginUserWithEmailAndPassword(
+        email: String,
+        password: String,
+    ): Flow<NetworkResult<Any>> {
+        return datasource.loginUserWithEmailAndPassword(email,password)
+    }
 }

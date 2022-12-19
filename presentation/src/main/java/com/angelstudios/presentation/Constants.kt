@@ -16,4 +16,6 @@ val authErrors = mapOf(
     "ERROR_USER_NOT_FOUND" to R.string.error_login_user_not_found,
     "ERROR_INVALID_USER_TOKEN" to R.string.error_login_invalid_user_token,
     "ERROR_OPERATION_NOT_ALLOWED" to R.string.error_login_operation_not_allowed,
-    "ERROR_WEAK_PASSWORD" to R.string.error_login_password_is_weak)
+    "ERROR_WEAK_PASSWORD" to R.string.error_login_password_is_weak,
+    "ERROR_NETWORK_CONNECTION" to R.string.error_no_internet_connection
+)
