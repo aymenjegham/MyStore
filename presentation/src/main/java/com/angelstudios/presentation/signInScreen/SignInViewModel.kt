@@ -15,6 +15,7 @@ import com.angelstudios.core.usecase.validatePassword.ValidatePasswordUseCase
 import com.angelstudios.presentation.R
 import com.angelstudios.presentation.authErrors
 import com.angelstudios.presentation.signInScreen.state.RegistrationScreenUiState
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -32,6 +33,7 @@ class SignInViewModel @Inject constructor(
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
     private val validateConfirmedPasswordUseCase: ValidateConfirmedPasswordUseCase,
+    private val firebaseCrashlytics: FirebaseCrashlytics,
 ) : ViewModel() {
 
     @OptIn(SavedStateHandleSaveableApi::class)
@@ -136,6 +138,9 @@ class SignInViewModel @Inject constructor(
                             withContext(Dispatchers.Main.immediate) {
                                 validateEventChannel.send(ValidationEvent.Success)
                             }
+                            firebaseCrashlytics
+                                .setCustomKey("userEmail", it as String)
+
                         }
                     }
                     is NetworkResult.Error -> {

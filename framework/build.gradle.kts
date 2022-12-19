@@ -4,6 +4,8 @@ plugins {
     id ("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id ("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+
 
 }
 
@@ -84,6 +86,12 @@ dependencies {
     // Firebase  authentication
     implementation(platform("com.google.firebase:firebase-bom:30.4.1"))
     implementation ("com.google.firebase:firebase-auth-ktx")
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:31.0.0"))
+
+    // Declare the dependency for the Crashlytics library
+    implementation ("com.google.firebase:firebase-crashlytics-ktx")
 
 }
 

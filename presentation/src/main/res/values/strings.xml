@@ -27,6 +27,8 @@
     <string name="error_login_user_token_expired">The user\'s credential is no longer valid. The user must sign in again</string>
     <string name="error_login_invalid_user_token">The user\'s credential is no longer valid. The user must sign in again.</string>
     <string name="error_login_default_error">error has occurred</string>
+    <string name="error_no_internet_connection">No internet Connection, please try again!</string>
+
 
     <string name="email_cant_be_blank">The email can\'t be blank</string>
     <string name="email_not_valid">That\'s not a valid email</string>
@@ -34,4 +36,5 @@
     <string name="password_cant_be_less_than_8">The password can\'t be of less than 8 characters</string>
     <string name="password_should_have_atleast_oneletter_onedigit">The password should have at least one letter and one digit</string>
     <string name="password_dont_match">The Password don\'t match</string>
+
 </resources>
