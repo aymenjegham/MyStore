@@ -3,6 +3,7 @@ plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -84,6 +85,12 @@ dependencies {
 
     //Splash screen
     implementation("androidx.core:core-splashscreen:1.0.0")
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:31.0.0"))
+
+    // Declare the dependency for the Crashlytics library
+    implementation ("com.google.firebase:firebase-crashlytics-ktx")
 }
 
 kapt {

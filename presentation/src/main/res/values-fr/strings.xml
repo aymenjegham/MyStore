@@ -35,5 +35,6 @@
     <string name="password_should_have_atleast_oneletter_onedigit">Le mot de passe doit contient au minimum une lettre et un chiffre</string>
     <string name="password_dont_match">Le mot de passe n\'est pas la meme</string>
     <string name="password_cant_be_blank">Le mot de passe doit pas etre vide</string>
+    <string name="error_no_internet_connection">Pas d\'accés à internet, réesayer !</string>
 
 </resources>
