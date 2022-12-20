@@ -16,13 +16,52 @@ class UserDatasourceImpl @Inject constructor(
 ) : UserDatasource {
 
     override fun registerUserWithEmailAndPassword(
-        userName: String,
+        email: String,
         password: String,
     ): Flow<NetworkResult<Any>> = callbackFlow {
 
         trySend(NetworkResult.Loading())
 
-        auth.createUserWithEmailAndPassword(userName, password)
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    trySend(NetworkResult.Success(task.result.user!!.email!!))
+                    close()
+                }
+            }
+            .addOnFailureListener { exception ->
+
+                exception.message?.let { FirebaseCrashlytics.getInstance().log(it) }
+
+
+                when (exception) {
+                    is FirebaseAuthException -> {
+                        trySend(NetworkResult.Error(message = exception.errorCode))
+                        close()
+                    }
+                    is FirebaseNetworkException -> {
+                        trySend(NetworkResult.Error(message = "ERROR_NETWORK_CONNECTION"))
+                        close()
+                    }
+                    else -> {
+                        trySend(NetworkResult.Error(message = exception.message))
+                        close()
+                    }
+                }
+
+
+            }
+        awaitClose()
+    }
+
+    override fun loginUserWithEmailAndPassword(
+        email: String,
+        password: String,
+    ): Flow<NetworkResult<Any>> = callbackFlow {
+
+        trySend(NetworkResult.Loading())
+
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     trySend(NetworkResult.Success(task.result.user!!.email!!))

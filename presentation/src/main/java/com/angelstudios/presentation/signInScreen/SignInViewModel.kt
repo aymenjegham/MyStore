@@ -37,10 +37,11 @@ class SignInViewModel @Inject constructor(
 ) : ViewModel() {
 
     @OptIn(SavedStateHandleSaveableApi::class)
-    var registrationScreenUiState by savedStateHandle.saveable {
+    private var _registrationScreenUiState by savedStateHandle.saveable {
         mutableStateOf(RegistrationScreenUiState())
     }
-        private set
+    val registrationScreenUiState
+        get() = _registrationScreenUiState
 
 
     private val validateEventChannel = Channel<ValidationEvent>()
@@ -50,15 +51,15 @@ class SignInViewModel @Inject constructor(
     fun onEvent(event: RegistrationFormEvent) {
         when (event) {
             is RegistrationFormEvent.EmailChanged -> {
-                registrationScreenUiState = registrationScreenUiState.copy(email = event.email)
+                _registrationScreenUiState = _registrationScreenUiState.copy(email = event.email)
             }
             is RegistrationFormEvent.PasswordChanged -> {
-                registrationScreenUiState =
-                    registrationScreenUiState.copy(password = event.password)
+                _registrationScreenUiState =
+                    _registrationScreenUiState.copy(password = event.password)
             }
             is RegistrationFormEvent.RepeatedPasswordChanged -> {
-                registrationScreenUiState =
-                    registrationScreenUiState.copy(repeatedPassword = event.repeatedPassword)
+                _registrationScreenUiState =
+                    _registrationScreenUiState.copy(repeatedPassword = event.repeatedPassword)
             }
             RegistrationFormEvent.Submit -> {
                 submitData()
@@ -71,7 +72,8 @@ class SignInViewModel @Inject constructor(
         val emailResult = validateEmailUseCase(registrationScreenUiState.email)
         val passwordResult = validatePasswordUseCase(registrationScreenUiState.password)
         val repeatedPasswordResult =
-            validateConfirmedPasswordUseCase(registrationScreenUiState.password,
+            validateConfirmedPasswordUseCase(
+                registrationScreenUiState.password,
                 registrationScreenUiState.repeatedPassword)
 
         val hasError = listOf(
@@ -101,7 +103,7 @@ class SignInViewModel @Inject constructor(
                 else -> null
             }
 
-            registrationScreenUiState = registrationScreenUiState.copy(
+            _registrationScreenUiState = _registrationScreenUiState.copy(
                 emailError = emailError,
                 passwordError = passwordError,
                 repeatedPasswordError = confirmedPasswordError
@@ -117,7 +119,7 @@ class SignInViewModel @Inject constructor(
     }
 
     private fun clearErrors() {
-        registrationScreenUiState = registrationScreenUiState.copy(
+        _registrationScreenUiState = _registrationScreenUiState.copy(
             emailError = null,
             passwordError = null,
             repeatedPasswordError = null,
@@ -147,8 +149,8 @@ class SignInViewModel @Inject constructor(
                         response.message?.let {
                             (authErrors[it] ?: R.string.error_login_default_error)
                                 .let { errorMessage ->
-                                    registrationScreenUiState =
-                                        registrationScreenUiState.copy(
+                                    _registrationScreenUiState =
+                                        _registrationScreenUiState.copy(
                                             apiError = errorMessage,
                                             showLoader = false
                                         )
@@ -156,8 +158,8 @@ class SignInViewModel @Inject constructor(
                         }
                     }
                     is NetworkResult.Loading -> {
-                        registrationScreenUiState =
-                            registrationScreenUiState.copy(showLoader = true)
+                        _registrationScreenUiState =
+                            _registrationScreenUiState.copy(showLoader = true)
                     }
                 }
             }

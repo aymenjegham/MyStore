@@ -5,6 +5,9 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface UserDatasource {
-    fun registerUserWithEmailAndPassword(userName: String, password: String) : Flow<NetworkResult<Any>>
+    fun registerUserWithEmailAndPassword(email: String, password: String) : Flow<NetworkResult<Any>>
+
+    fun loginUserWithEmailAndPassword(email: String, password: String) : Flow<NetworkResult<Any>>
+
 }
 

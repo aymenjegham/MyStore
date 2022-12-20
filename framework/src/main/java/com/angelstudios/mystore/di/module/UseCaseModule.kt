@@ -1,5 +1,7 @@
 package com.angelstudios.mystore.di.module
 
+import com.angelstudios.core.usecase.loginUserWithEmailAndPassword.LoginUserWithEmailAndPasswordUseCase
+import com.angelstudios.core.usecase.loginUserWithEmailAndPassword.LoginUserWithEmailAndPasswordUseCaseImpl
 import com.angelstudios.core.usecase.registeruserWithEmailAndPassword.RegisterUserWithEmailAndPasswordUseCase
 import com.angelstudios.core.usecase.registeruserWithEmailAndPassword.RegisterUserWithEmailAndPasswordUseCaseImpl
 import com.angelstudios.core.usecase.validateConfirmedPassword.ValidateConfirmedPasswordUseCase
@@ -22,6 +24,10 @@ abstract class UseCaseModule {
     @Singleton
     @Binds
     abstract fun bindsRegisterUser(registerFirebaseUser: RegisterUserWithEmailAndPasswordUseCaseImpl): RegisterUserWithEmailAndPasswordUseCase
+
+    @Singleton
+    @Binds
+    abstract fun bindsLoginUser(loginUserWithEmailAndPasswordUseCaseImpl: LoginUserWithEmailAndPasswordUseCaseImpl): LoginUserWithEmailAndPasswordUseCase
 
     @Singleton
     @Binds

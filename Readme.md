@@ -1,6 +1,6 @@
 ﻿# Welcome to MyStore!
 
-Hi! My name's Aymen Jegham and I'm **Android developer**. this is  **My store**and it's an android app for e-commerce small and local businesses 
+Hi! My name's Aymen Jegham and I'm **Android developer**. this is  **My store** and it's an android app for e-commerce small and local businesses 
 
 
 # Technologies
