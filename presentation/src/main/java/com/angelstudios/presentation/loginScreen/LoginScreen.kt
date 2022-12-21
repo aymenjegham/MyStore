@@ -40,6 +40,7 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel) {
     val state = viewModel.loginUiState
 
     val context = LocalContext.current
+
     LaunchedEffect(key1 = context ){
         viewModel.validationEvent.collect { event ->
             when (event) {
