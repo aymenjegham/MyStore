@@ -5,17 +5,15 @@ plugins {
     id("com.google.dagger.hilt.android")
     id ("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
-
-
 }
 
 android {
     namespace ="com.angelstudios.mystore"
-    compileSdk = 33
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = 21
-        targetSdk  =33
+        minSdk = 23
+        targetSdk  =35
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -30,17 +28,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility  = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility  = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion  = "1.3.2"
+        kotlinCompilerExtensionVersion  = "1.5.2"
     }
     packagingOptions {
         resources {
@@ -65,11 +63,11 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.5.3")
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:2.44.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.44.2")
+    implementation("com.google.dagger:hilt-android:2.54")
+    kapt("com.google.dagger:hilt-android-compiler:2.54")
 
     //Room
-    val roomVersion = "2.4.3"
+    val roomVersion = "2.6.0"
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
@@ -82,16 +80,9 @@ dependencies {
     //Gson
     implementation("com.google.code.gson:gson:2.8.9")
 
-
-    // Firebase  authentication
-    implementation(platform("com.google.firebase:firebase-bom:30.4.1"))
-    implementation ("com.google.firebase:firebase-auth-ktx")
-
-    // Import the BoM for the Firebase platform
-    implementation(platform("com.google.firebase:firebase-bom:31.0.0"))
-
-    // Declare the dependency for the Crashlytics library
-    implementation ("com.google.firebase:firebase-crashlytics-ktx")
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
 
 }
 
