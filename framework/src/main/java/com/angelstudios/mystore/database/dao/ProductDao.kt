@@ -2,8 +2,8 @@ package com.angelstudios.mystore.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy.REPLACE
-import androidx.room.Query
+import androidx.room.OnConflictStrategy
+ import androidx.room.Query
 import com.angelstudios.core.domain.product.Product
 import com.angelstudios.mystore.Entity.product.ProductEntity
 
@@ -11,7 +11,7 @@ import com.angelstudios.mystore.Entity.product.ProductEntity
 @Dao
 interface ProductDao {
 
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(productEntity: ProductEntity)
 
     @Query("SELECT * FROM PRODUCT WHERE companyId = :companyId")
