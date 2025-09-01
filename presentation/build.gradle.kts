@@ -12,10 +12,10 @@ android {
 
     defaultConfig {
         applicationId = "com.angelstudios.presentation"
-        minSdk = 23
+        minSdk = 21
         targetSdk = 35
-        versionCode = 5
-        versionName = "5.0"
+        versionCode = 33
+        versionName = "3.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -88,9 +88,11 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0")
 
 
-    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
-    implementation("com.google.firebase:firebase-crashlytics-ktx")
-    implementation("com.google.firebase:firebase-auth-ktx")
+    // Crashlytics (works fine with minSdk 21)
+    implementation("com.google.firebase:firebase-crashlytics-ktx:19.4.0")
+
+    // Auth (last version that supports minSdk 21/22)
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
 }
 
 kapt {
