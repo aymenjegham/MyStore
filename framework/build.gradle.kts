@@ -4,16 +4,17 @@ plugins {
     id ("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id ("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
+
+
 }
 
 android {
     namespace ="com.angelstudios.mystore"
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 21
-        targetSdk  =35
+        targetSdk  =37
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -38,9 +39,9 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion  = "1.5.2"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
-    packagingOptions {
+    packaging {
         resources {
             resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
         }
@@ -63,11 +64,11 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.5.3")
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:2.54")
-    kapt("com.google.dagger:hilt-android-compiler:2.54")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
     //Room
-    val roomVersion = "2.6.0"
+    val roomVersion = "2.6.1"
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
@@ -80,11 +81,16 @@ dependencies {
     //Gson
     implementation("com.google.code.gson:gson:2.8.9")
 
-    // Crashlytics (works fine with minSdk 21)
-    implementation("com.google.firebase:firebase-crashlytics-ktx:19.4.0")
 
-    // Auth (last version that supports minSdk 21/22)
-    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+    // Firebase  authentication
+    implementation(platform("com.google.firebase:firebase-bom:30.4.1"))
+    implementation ("com.google.firebase:firebase-auth-ktx")
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:31.0.0"))
+
+    // Declare the dependency for the Crashlytics library
+    implementation ("com.google.firebase:firebase-crashlytics-ktx")
 
 }
 

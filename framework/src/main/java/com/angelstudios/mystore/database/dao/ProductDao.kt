@@ -3,7 +3,7 @@ package com.angelstudios.mystore.database.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
- import androidx.room.Query
+import androidx.room.Query
 import com.angelstudios.core.domain.product.Product
 import com.angelstudios.mystore.Entity.product.ProductEntity
 
