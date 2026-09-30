@@ -152,7 +152,6 @@ class LoginViewModel @Inject constructor(
                     }
                 }
         }
-
     }
 
     private fun clearErrors() {

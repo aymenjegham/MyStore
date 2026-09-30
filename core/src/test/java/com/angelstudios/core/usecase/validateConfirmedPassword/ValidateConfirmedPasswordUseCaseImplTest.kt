@@ -6,7 +6,6 @@ import org.junit.Test
 
 class ValidateConfirmedPasswordUseCaseImplTest {
 
-
     private lateinit var validateConfirmedPasswordUseCaseImpl: ValidateConfirmedPasswordUseCaseImpl
 
     @Before

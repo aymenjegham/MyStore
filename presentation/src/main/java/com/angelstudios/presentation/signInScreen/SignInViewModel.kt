@@ -115,7 +115,6 @@ class SignInViewModel @Inject constructor(
             clearErrors()
             registerUser(registrationScreenUiState.email, registrationScreenUiState.password)
         }
-
     }
 
     private fun clearErrors() {

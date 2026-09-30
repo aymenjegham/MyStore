@@ -5,4 +5,11 @@
       <module name="MyStore.ui-main" target="11" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="MyStore.core" options="-proc:none" />
+      <module name="MyStore.core.main" options="-proc:none" />
+      <module name="MyStore.core.test" options="-proc:none" />
+    </option>
+  </component>
 </project>
