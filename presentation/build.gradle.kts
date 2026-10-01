@@ -87,7 +87,7 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0")
 
     // Import the BoM for the Firebase platform
-    implementation(platform("com.google.firebase:firebase-bom:31.0.0"))
+    implementation(platform("com.google.firebase:firebase-bom:31.1.0"))
 
     // Declare the dependency for the Crashlytics library
     implementation ("com.google.firebase:firebase-crashlytics-ktx")
