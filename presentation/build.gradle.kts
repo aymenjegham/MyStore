@@ -14,8 +14,8 @@ android {
         applicationId = "com.angelstudios.presentation"
         minSdk = 21
         targetSdk = 37
-        versionCode = 4
-        versionName = "3.4"
+        versionCode = 35
+        versionName = "3.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
