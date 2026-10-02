@@ -3,6 +3,7 @@ plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
 }
 
@@ -12,10 +13,10 @@ android {
 
     defaultConfig {
         applicationId = "com.angelstudios.presentation"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 37
-        versionCode = 37
-        versionName = "3.7"
+        versionCode = 38
+        versionName = "3.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -25,7 +26,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro")
         }
@@ -87,10 +89,10 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0")
 
     // Import the BoM for the Firebase platform
-    implementation(platform("com.google.firebase:firebase-bom:31.1.0"))
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
 
     // Declare the dependency for the Crashlytics library
-    implementation ("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-crashlytics")
 }
 
 kapt {
