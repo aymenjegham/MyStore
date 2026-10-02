@@ -3,7 +3,6 @@ plugins {
     id ("com.android.library")
     id ("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
-    id ("com.google.gms.google-services")
 
 
 }
@@ -54,7 +53,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
     implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("com.google.firebase:firebase-auth:21.1.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.4")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
@@ -83,11 +81,11 @@ dependencies {
 
 
     // Firebase  authentication
-    implementation(platform("com.google.firebase:firebase-bom:31.1.0"))
-    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-auth")
 
     // Declare the dependency for the Crashlytics library
-    implementation ("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-crashlytics")
 
 }
 
