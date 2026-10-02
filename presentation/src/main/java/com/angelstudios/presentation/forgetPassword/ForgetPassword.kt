@@ -23,18 +23,20 @@ fun ForgotPassword(navController: NavController) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun ScaffoldWithTopBarForgotPass(navController: NavController) {
     LockScreenOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
     Scaffold(
+        contentWindowInsets = WindowInsets.safeDrawing,
         topBar = {
             CustomTopAppBar(navController, stringResource(R.string.reset_password), true)
         }, content = {
             Column(
                 modifier = Modifier
                     .padding(it)
+                    .consumeWindowInsets(it)
                     .fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally

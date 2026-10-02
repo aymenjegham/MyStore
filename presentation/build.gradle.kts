@@ -14,8 +14,8 @@ android {
         applicationId = "com.angelstudios.presentation"
         minSdk = 21
         targetSdk = 37
-        versionCode = 35
-        versionName = "3.5"
+        versionCode = 37
+        versionName = "3.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -54,7 +54,7 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
-    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.compose.ui:ui:1.3.2")
     implementation("androidx.compose.ui:ui-tooling-preview:1.3.2")
     implementation("androidx.compose.material3:material3:1.1.0-alpha03")
