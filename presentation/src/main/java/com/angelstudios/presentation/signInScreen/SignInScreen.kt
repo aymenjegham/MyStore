@@ -35,7 +35,7 @@ fun SignInScreen(navController: NavController, viewModel: SignInViewModel) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun ScaffoldWithTopBar(navController: NavController, viewModel: SignInViewModel) {
 
@@ -59,17 +59,20 @@ fun ScaffoldWithTopBar(navController: NavController, viewModel: SignInViewModel)
     }
 
     Scaffold(
+        contentWindowInsets = WindowInsets.safeDrawing,
         topBar = {
             CustomTopAppBar(navController, stringResource(R.string.sign_up), true)
         },
         content = {
             Box(
-                Modifier.fillMaxSize(),
+                Modifier
+                    .fillMaxSize()
+                    .padding(it)
+                    .consumeWindowInsets(it),
                  contentAlignment  = Alignment.Center
             ) {
                 Column(
                     Modifier
-                        .padding(it)
                         .verticalScroll(rememberScrollState())
                         .fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
@@ -153,5 +156,3 @@ fun ScaffoldWithTopBar(navController: NavController, viewModel: SignInViewModel)
         }
     )
 }
-
-

@@ -80,7 +80,8 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel) {
     Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
         Box(
             Modifier
-                .fillMaxSize(),
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.safeDrawing),
             contentAlignment = Alignment.Center
         ) {
             Column(modifier = Modifier
